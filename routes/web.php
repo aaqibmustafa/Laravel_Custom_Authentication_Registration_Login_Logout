@@ -14,11 +14,11 @@ use App\Http\Controllers\CustomAuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/login',[CustomAuthController::class,'login']);
+Route::get('/',[CustomAuthController::class,'login']);
 Route::get('/registration',[CustomAuthController::class,'registration']);
 
 Route::post('/register-user',[CustomAuthController::class,'registerUser'])->name('register-user');
@@ -29,5 +29,5 @@ Route::get('/dashboard',[CustomAuthController::class,'dashboard']);
 // Logout Route
 Route::get('/logout', function() {
     Session::forget('logId');
-    return redirect('/login');
+    return redirect('/');
 })->name('logout');
